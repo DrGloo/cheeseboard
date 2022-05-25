@@ -1,9 +1,14 @@
-// cheese.js script for cheeseboard repo
-const Sequelize = require('sequelize');
-const sequelize = require("./sequelize");
-const cheese = sequelize.define('cheese', {
-  title: Sequelize.STRING,
-  description: Sequelize.STRING
+const {DataTypes, sequelize, Model} = require('./db');
+
+class Cheese extends Model{};
+
+Cheese.init({
+    title: DataTypes.STRING,
+    description: DataTypes.STRING
+},{
+    sequelize
 });
 
-module.exports = cheese
+module.exports = {
+    Cheese
+};

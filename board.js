@@ -1,9 +1,17 @@
-const { Sequelize } = require("sequelize");
-const sequelize = require("./sequelize");
-const board = sequelize.define('board', {
-  type: Sequelize.STRING,
-  description: Sequelize.STRING,
-  rating: Sequelize.INTEGER
+const {DataTypes, sequelize, Model} = require('./db');
+
+//creates the board model
+
+class Board extends Model{};
+
+Board.init({
+    type: DataTypes.STRING,
+    description: DataTypes.STRING,
+    rating: DataTypes.INTEGER
+}, {
+    sequelize
 });
 
-module.exports = board
+module.exports = {
+    Board
+}

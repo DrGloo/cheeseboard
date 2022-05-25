@@ -1,9 +1,17 @@
-// user.js script for cheeseboard project
-const Sequelize = require('sequelize');
-const sequelize = require("./sequelize");
-const user = sequelize.define('user', {
-  name: Sequelize.STRING,
-  email: Sequelize.STRING
-});
+const { Board } = require('./Board');
+const {DataTypes, sequelize, Model} = require('./db');
 
-module.exports = user;
+//Define the User model:
+
+class User extends Model{};
+
+User.init({
+    name: DataTypes.STRING,
+    email: DataTypes.STRING
+},{
+    sequelize
+})
+
+module.exports = {
+    User
+};
